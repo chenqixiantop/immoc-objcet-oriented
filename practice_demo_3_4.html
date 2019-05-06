@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //json格式
+        var obj1 = {
+            name:"immoc",
+            action:function(){
+                alert("前端");
+            }
+        };
+        obj1.action();
+        //object方式
+        var obj2 = new Object();
+        obj2.name = "immoc";
+        obj2.action = function(){
+            alert("前端");
+        };
+        obj2.action();
+        //构造函数方式
+        function fn(name)
+        {
+            this.name = name;
+            this.action = function(){
+                alert("前端");
+            };
+        }
+        myObject = new fn("immoc");
+        myObject.action();
+    </script>
+</body>
+</html>
