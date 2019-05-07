@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>面向对象的工厂模式</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //工厂模式
+        function fn(name){
+            var object1 = new Object();
+            object1.name = name;
+            object1.action = function(){
+                alert("前端工厂模式");
+            } 
+            return object1;
+        }
+
+        var obj1 = fn("immoc");
+        console.log(obj1);
+        obj1.action();
+
+        //原型模式1
+        function fn2(){};
+        fn2.prototype.name = "immoc";
+        fn2.prototype.action = function(){
+            alert("前端原型模式");
+        }
+        var obj2 = new fn2();
+        console.log(obj2.name);
+        obj2.action();
+
+        //原型模式2
+        function fn3(){};
+        fn3.prototype = {
+            name:"immoc",
+            action:function(){
+                alert("前端原型模式");
+            }
+        }
+        var obj3 = new fn3("immoc");
+        console.log(obj3.name);
+        obj3.action();
+    
+        //混合模式
+        function fn4(name){
+            this.name = name;
+        }
+        var obj4 = new fn4("immoc");
+        obj4.prototype = {
+            action:function(){
+                alert("前端混合模式");
+            }
+        }
+        obj4.prototype.action();
+    </script>
+</body>
+</html>
